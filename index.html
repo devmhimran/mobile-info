@@ -6,13 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/bootstrap.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Mobo Pedia</title>
 </head>
 <body>
-    <section class="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo alias vel nemo quod beatae magnam exercitationem voluptatibus similique saepe, impedit assumenda, expedita voluptate id nihil minus quas. Illo, sint saepe aliquam reprehenderit dignissimos quae fugit, accusamus voluptate praesentium impedit vero cumque, fugiat aspernatur! Eaque voluptas, excepturi omnis perferendis nihil inventore.</p>
+    <header class="header container py-4 ">
+        <div class="header-content">
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="logo" href="./index.html">Mobo<span class=" text-primary">Pedia</span></a>
+                </div>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter your favourite phone name" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+    <!-- Not Found Message Start -->
+    <div class="error">
+        <div class="container mt-5">
+            <h1 class="text-danger">Search Not Found</h1>
+        </div>
+    </div>
+    <!-- Not Found Message End -->
+   
+    <!-- Searched Mobile Start -->
+    <section class="all-mobile-section py-5">
+        <div class="container">
+            <div class="row g-3">
+
+
+                <div class="col-md-3">
+                    <div class="card m-3">
+                        <div class="card-body">
+                            <div class="phone-img text-center mt-3">
+                                <img  data-bs-toggle="modal" href="#exampleModalToggle" role="button" src="./src/img/apple-iphone-13-pro-max.jpg" alt="">
+                            </div>
+                            <div class="phone-name mt-4">
+                                <h4>I Phone 13</h4>
+                            </div>
+                            <div class="release-date">
+                                <p>Released 2021, September 24</p>
+                            </div>
+                            <div class="view-button">
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" href="#exampleModalToggle" role="button">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                
+                
+                
+            </div>
+        </div>
     </section>
-    
+    <!-- Searched Mobile Ens -->
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <script src="./src/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
