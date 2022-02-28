@@ -5,6 +5,69 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.holder {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+  } 
+  
+  .preloader {
+    position: absolute;
+    width: 10%;
+    height: 0%;
+    padding-bottom: 10%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .preloader div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
+    animation: animatePreloader 1s infinite linear;
+    transform-origin: 50% 100%;
+  }
+  .preloader div:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #333;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+  .preloader div:nth-child(2) {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    animation: animatePreloader 0.5s infinite linear;
+  }
+  @keyframes animatePreloader {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotateZ(360deg);
+    }
+  }
+
+
+/* .header{
+    z-index: 999;
+} */
 .logo{
     font-size: 28px;
     text-decoration: none;
