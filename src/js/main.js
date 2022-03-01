@@ -42,8 +42,8 @@ const displaySearchPhone = searchPhoneData => {
         const divCreate = document.createElement('div');
         divCreate.classList.add('col-md-4');
         divCreate.innerHTML = `
-                    <div class="card m-3">
-                        <div class="card-body">
+                    <div class="card m-3 phone-card">
+                        <div class="card-body p-4">
                             <div class="phone-img text-center mt-3">
                                 <img  data-bs-toggle="modal" href="#exampleModalToggle" role="button" src="${searchData.image}" alt="">
                             </div>
@@ -76,32 +76,30 @@ const viewPhoneDetail = (phoneSlug) =>{
 
 const displaySinglePhone = singlePhoneDetail => {
     console.log(singlePhoneDetail);
-    const modalDiv = document.getElementById('phone-modal');
+    const modalDiv = document.getElementById('modal-content');
+    modalDiv.innerHTML = '';
     const createModal = document.createElement('div');
-    // createModal.classList.add()
+    // createModal.classList.add('show-modal');
     createModal.innerHTML = `
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel">${singlePhoneDetail.name}</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
+
+    <div class="modal-body container">
+    <div class="modal-close-button text-end">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
     
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-                </div>
-              </div>
+    <div class="row">
+        <div class="col-md-5">
+            <img src="${singlePhoneDetail.image}" alt="">
+        </div>
+        <div class="col-md-7">
+            <h3>${singlePhoneDetail.name}</h3>
+            <div class="phone-detail">
+                <p>Brand: ${singlePhoneDetail.brand}</p>
+                <p class="release-date">Release Date: <span>${singlePhoneDetail.brand}</span></p>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
     `;
     modalDiv.appendChild(createModal);
 }

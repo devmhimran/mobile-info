@@ -102,6 +102,9 @@ hr{
 /* .phone-img{
     text-align: center;
 } */
+.phone-card{
+  border-radius: 10px;
+}
 .phone-img img{
     width: 200px;
     text-align: center;
@@ -110,4 +113,18 @@ hr{
 .phone-img img:hover{
     transform: scale(1.2);
     transition: 0.4s ease-in-out;
+}
+.modal-content{
+  border-radius: 20px;
+}
+.phone-detail{
+
+}
+.release-date{
+  font-weight: 500;
+  color: #262524;
+}
+.release-date span{
+  font-weight: 400;
+  color: grey;
 }
