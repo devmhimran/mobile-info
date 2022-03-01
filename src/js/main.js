@@ -6,6 +6,11 @@ const searchInput = searchId => {
     return searchInputValue;
 }
 
+const preloader = (displayStyle) =>{
+    const preloaderId = document.getElementById('preloader');
+    preloaderId.style.display = displayStyle;
+}
+
 document.getElementById('search-button').addEventListener('click', function(){
     const searchInputText = searchInput('search-input');
     // console.log(searchInputText);
@@ -13,6 +18,7 @@ document.getElementById('search-button').addEventListener('click', function(){
     fetch(inputUrl)
     .then(res => res.json())
     .then(data => displaySearchPhone(data));
+    preloader('block');
 });
 
 const errorMessage = (displayStyle) =>{
@@ -26,8 +32,9 @@ const displaySearchPhone = searchPhoneData => {
     if( searchPhoneData.data.length == 0 ){
         console.log('Not Found');
         errorMessage('block');
+        preloader('none');
     }else{
-        
+        preloader('none');
         for(const searchData of searchPhoneData.data){
         console.log(searchData);
         errorMessage('none');
