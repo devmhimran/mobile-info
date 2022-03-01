@@ -6,6 +6,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #f3f3f3;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0c6efd; 
+  border-radius: 10px;
+}
+
 .holder {
     position: absolute;
     left: 0%;

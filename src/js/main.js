@@ -15,9 +15,47 @@ document.getElementById('search-button').addEventListener('click', function(){
     .then(data => displaySearchPhone(data));
 });
 
+const errorMessage = (displayStyle) =>{
+    const errorMessageId = document.getElementById('error-message');
+    errorMessageId.style.display = displayStyle;
+}
+errorMessage('none');
 const displaySearchPhone = searchPhoneData => {
-    // for( const phoneData of searchPhoneData ){
-    //     console.log(phoneData[0]);
-    // }
-    console.log(searchPhoneData.data[0]);
+    const searchPhone = document.getElementById('search-phone');
+    searchPhone.innerHTML = '';
+    if( searchPhoneData.data.length == 0 ){
+        console.log('Not Found');
+        errorMessage('block');
+    }else{
+        
+        for(const searchData of searchPhoneData.data){
+        console.log(searchData);
+        errorMessage('none');
+        
+        const divCreate = document.createElement('div');
+        divCreate.classList.add('col-md-4');
+        divCreate.innerHTML = `
+                    <div class="card m-3">
+                        <div class="card-body">
+                            <div class="phone-img text-center mt-3">
+                                <img  data-bs-toggle="modal" href="#exampleModalToggle" role="button" src="${searchData.image}" alt="">
+                            </div>
+                            <div class="phone-name mt-4">
+                                <h4>${searchData.phone_name}</h4>
+                            </div>
+                            <div class="release-date">
+                                <p>Released 2021, September 24</p>
+                            </div>
+                            <div class="view-button">
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" href="#exampleModalToggle" role="button">View</button>
+                            </div>
+                        </div>
+                    </div>
+        `;
+        searchPhone.appendChild(divCreate);
+        }
+        
+        
+    }
+    
 }
