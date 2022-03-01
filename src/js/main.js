@@ -36,7 +36,7 @@ const displaySearchPhone = searchPhoneData => {
     }else{
         preloader('none');
         for(const searchData of searchPhoneData.data){
-        console.log(searchData);
+        // console.log(searchData);
         errorMessage('none');
         
         const divCreate = document.createElement('div');
@@ -54,7 +54,7 @@ const displaySearchPhone = searchPhoneData => {
                                 <p>Released 2021, September 24</p>
                             </div>
                             <div class="view-button">
-                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" href="#exampleModalToggle" role="button">View</button>
+                                <button id="view-button" onclick="viewPhoneDetail('${searchData.slug}')" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" href="#exampleModalToggle" role="button">View</button>
                             </div>
                         </div>
                     </div>
@@ -65,4 +65,43 @@ const displaySearchPhone = searchPhoneData => {
         
     }
     
+}
+
+const viewPhoneDetail = (phoneSlug) =>{
+    const phoneDetailSlug = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
+    fetch(phoneDetailSlug)
+    .then(res => res.json())
+    .then(phoneData => displaySinglePhone(phoneData.data))
+}
+
+const displaySinglePhone = singlePhoneDetail => {
+    console.log(singlePhoneDetail);
+    const modalDiv = document.getElementById('phone-modal');
+    const createModal = document.createElement('div');
+    // createModal.classList.add()
+    createModal.innerHTML = `
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel">${singlePhoneDetail.name}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    `;
+    modalDiv.appendChild(createModal);
 }
