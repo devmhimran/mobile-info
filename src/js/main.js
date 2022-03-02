@@ -13,7 +13,6 @@ const preloader = (displayStyle) =>{
 // Search Input
 document.getElementById('search-button').addEventListener('click', function(){
     const searchInputText = searchInput('search-input');
-    // console.log(searchInputText);
     const inputUrl = `https://openapi.programming-hero.com/api/phones?search=${searchInputText}`;
     fetch(inputUrl)
     .then(res => res.json())
@@ -29,10 +28,9 @@ errorMessage('none');
 const displaySearchPhone = searchPhoneData => {
     const searchPhone = document.getElementById('search-phone');
     const search20Data = searchPhoneData.data.slice(0, 20);
-    console.log(searchPhoneData.data);
+    // console.log(searchPhoneData);
     searchPhone.innerHTML = '';
     if( searchPhoneData.data.length == 0 ){
-        console.log('Not Found');
         errorMessage('block');
         preloader('none');
     }else{
@@ -80,7 +78,6 @@ const viewPhoneDetail = (phoneSlug) =>{
 // Single Phone Modal
 const displaySinglePhone = singlePhoneDetail => {
   
-    console.log(singlePhoneDetail.mainFeatures);
     const modalDiv = document.getElementById('modal-content');
     modalDiv.innerHTML = '';
     const createModal = document.createElement('div');
@@ -102,33 +99,33 @@ const displaySinglePhone = singlePhoneDetail => {
                 </div>
             </div>
         </div>
-    <hr class="my-3">
-    <div class="mainFeatures">
-    <h4>Main Features</h4>
-    <p>Display Size: <span>${singlePhoneDetail.mainFeatures.displaySize?singlePhoneDetail.mainFeatures.displaySize:'No Data Found'}</span></p>
-    <p>Chip Set: <span>${singlePhoneDetail.mainFeatures.chipSet?singlePhoneDetail.mainFeatures.chipSet:'No Data Found'}</span></p>
-    <p>Memory: <span>${singlePhoneDetail.mainFeatures.memory?singlePhoneDetail.mainFeatures.memory:'No Data Found'}</span></p>
-    <p>Storage: <span>${singlePhoneDetail.mainFeatures.storage?singlePhoneDetail.mainFeatures.storage:'No Data Found'}</span></p>
-</div>
+        <hr class="my-3">
+        <div class="mainFeatures">
+            <h4>Main Features</h4>
+            <p>Display Size: <span>${singlePhoneDetail.mainFeatures.displaySize?singlePhoneDetail.mainFeatures.displaySize:'No Data Found'}</span></p>
+            <p>Chip Set: <span>${singlePhoneDetail.mainFeatures.chipSet?singlePhoneDetail.mainFeatures.chipSet:'No Data Found'}</span></p>
+            <p>Memory: <span>${singlePhoneDetail.mainFeatures.memory?singlePhoneDetail.mainFeatures.memory:'No Data Found'}</span></p>
+            <p>Storage: <span>${singlePhoneDetail.mainFeatures.storage?singlePhoneDetail.mainFeatures.storage:'No Data Found'}</span></p>
+        </div>
 
-<div  class="sensors">
-    <h4>Sensors</h4>
-    <p>
-            <span  class="sensor-detail">
-                ${singlePhoneDetail.mainFeatures.sensors?singlePhoneDetail.mainFeatures.sensors: 'No Sensor Data Found'}
-            </span>
-        </p>
-        
-</div>
-<div class="others">
-    <h4>Others</h4>
-    <p>Bluetooth: <span>${singlePhoneDetail.others?.Bluetooth?singlePhoneDetail.others.Bluetooth:'No Data Found'}</span></p>
-    <p>GPS: <span>${singlePhoneDetail.others?.GPS?singlePhoneDetail.others.GPS:'No Data Found'}</span></p>
-    <p>NFC: <span>${singlePhoneDetail.others?.NFC?singlePhoneDetail.others.NFC:'No Data Found'}</span></p>
-    <p>Radio: <span>${singlePhoneDetail.others?.Radio?singlePhoneDetail.others.Radio:'No Data Found'}</span></p>
-    <p>USB: <span>${singlePhoneDetail.others?.USB?singlePhoneDetail.others.USB:'No Data Found'}</span></p>
-    <p>WLAN: <span>${singlePhoneDetail.others?.WLAN?singlePhoneDetail.others.WLAN:'No Data Found'}</span></p>
-</div>
+    <div  class="sensors">
+        <h4>Sensors</h4>
+            <p>
+                <span  class="sensor-detail">
+                    ${singlePhoneDetail.mainFeatures.sensors?singlePhoneDetail.mainFeatures.sensors: 'No Sensor Data Found'}
+                </span>
+            </p>
+            
+    </div>
+    <div class="others">
+        <h4>Others</h4>
+        <p>Bluetooth: <span>${singlePhoneDetail.others?.Bluetooth?singlePhoneDetail.others.Bluetooth:'No Data Found'}</span></p>
+        <p>GPS: <span>${singlePhoneDetail.others?.GPS?singlePhoneDetail.others.GPS:'No Data Found'}</span></p>
+        <p>NFC: <span>${singlePhoneDetail.others?.NFC?singlePhoneDetail.others.NFC:'No Data Found'}</span></p>
+        <p>Radio: <span>${singlePhoneDetail.others?.Radio?singlePhoneDetail.others.Radio:'No Data Found'}</span></p>
+        <p>USB: <span>${singlePhoneDetail.others?.USB?singlePhoneDetail.others.USB:'No Data Found'}</span></p>
+        <p>WLAN: <span>${singlePhoneDetail.others?.WLAN?singlePhoneDetail.others.WLAN:'No Data Found'}</span></p>
+    </div>
     `;
 
     modalDiv.appendChild(createModal);
