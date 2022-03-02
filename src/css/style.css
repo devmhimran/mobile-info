@@ -22,7 +22,9 @@
   background: #0c6efd; 
   border-radius: 10px;
 }
-
+/* p{
+  margin: 0;
+} */
 .holder {
     position: absolute;
     left: 0%;
@@ -117,14 +119,25 @@ hr{
 .modal-content{
   border-radius: 20px;
 }
-.phone-detail{
-
-}
-.release-date{
-  font-weight: 500;
+.release-date,
+.brand,
+.mainFeatures p{
+  font-weight: 600;
   color: #262524;
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 32px;
 }
-.release-date span{
+.release-date span,
+.brand span,
+.mainFeatures span{
   font-weight: 400;
-  color: grey;
+  color: #535353;
+}
+.mainFeatures{
+  color: #262524;
+  font-weight: 600;
+}
+.sensor{
+  display: inline-block;
 }
