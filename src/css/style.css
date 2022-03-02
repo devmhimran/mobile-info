@@ -121,7 +121,10 @@ hr{
 }
 .release-date,
 .brand,
-.mainFeatures p{
+.mainFeatures p,
+.sensors p,
+.others p
+{
   font-weight: 600;
   color: #262524;
   margin: 10px 0;
@@ -130,14 +133,35 @@ hr{
 }
 .release-date span,
 .brand span,
-.mainFeatures span{
+.mainFeatures span,
+.sensors span,
+.others span
+{
   font-weight: 400;
   color: #535353;
 }
-.mainFeatures{
+.mainFeatures, 
+.sensors,
+.others{
   color: #262524;
   font-weight: 600;
 }
 .sensor{
   display: inline-block;
 }
+
+@media only screen and (max-width: 662px){
+  .header-content{
+    text-align: center;
+  }
+  .header-logo{
+    margin-bottom: 15px;
+  }
+  .modal-phone-image{
+    text-align: center;
+  }
+  .modal-phone-image img{
+    width: 180px;
+    margin-bottom: 25px;
+  }
+ }

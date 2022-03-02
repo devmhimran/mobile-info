@@ -40,7 +40,9 @@ const displaySearchPhone = searchPhoneData => {
         errorMessage('none');
         
         const divCreate = document.createElement('div');
-        divCreate.classList.add('col-md-4');
+        divCreate.classList.add('col-lg-4');
+        divCreate.classList.add('col-md-6');
+        divCreate.classList.add('col-sm-12');
         divCreate.innerHTML = `
                     <div class="card m-3 phone-card">
                         <div class="card-body p-4">
@@ -74,8 +76,11 @@ const viewPhoneDetail = (phoneSlug) =>{
     .then(phoneData => displaySinglePhone(phoneData.data))
 }
 
+
+
 const displaySinglePhone = singlePhoneDetail => {
-    // console.log(singlePhoneDetail.mainFeatures.sensors.splice(0));
+  
+    console.log(singlePhoneDetail.mainFeatures);
     const modalDiv = document.getElementById('modal-content');
     modalDiv.innerHTML = '';
     const createModal = document.createElement('div');
@@ -86,7 +91,7 @@ const displaySinglePhone = singlePhoneDetail => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="modal-phone-image" class="col-md-5">
                 <img src="${singlePhoneDetail.image}" alt="">
             </div>
             <div class="col-md-7">
@@ -99,23 +104,31 @@ const displaySinglePhone = singlePhoneDetail => {
         </div>
     <hr class="my-3">
     <div class="mainFeatures">
-        <h4>Main Features</h4>
-        <p>Display Size: <span>${singlePhoneDetail.mainFeatures.displaySize}</span></p>
-        <p>Chip Set: <span>${singlePhoneDetail.mainFeatures.chipSet}</span></p>
-        <p>Memory: <span>${singlePhoneDetail.mainFeatures.memory}</span></p>
-        <p>Storage: <span>${singlePhoneDetail.mainFeatures.storage}</span></p>
-        <p class="sensor">Sensors: 
-            <span>
-                ${singlePhoneDetail.mainFeatures.sensors[0]}
-                ${singlePhoneDetail.mainFeatures.sensors[1]}
-                ${singlePhoneDetail.mainFeatures.sensors[2]}
-                ${singlePhoneDetail.mainFeatures.sensors[3]}
-                ${singlePhoneDetail.mainFeatures.sensors[4]}
-                ${singlePhoneDetail.mainFeatures.sensors[4]}
-            </span>
-        </p> 
+    <h4>Main Features</h4>
+    <p>Display Size: <span>${singlePhoneDetail.mainFeatures.displaySize?singlePhoneDetail.mainFeatures.displaySize:'No Data Found'}</span></p>
+    <p>Chip Set: <span>${singlePhoneDetail.mainFeatures.chipSet?singlePhoneDetail.mainFeatures.chipSet:'No Data Found'}</span></p>
+    <p>Memory: <span>${singlePhoneDetail.mainFeatures.memory?singlePhoneDetail.mainFeatures.memory:'No Data Found'}</span></p>
+    <p>Storage: <span>${singlePhoneDetail.mainFeatures.storage?singlePhoneDetail.mainFeatures.storage:'No Data Found'}</span></p>
+</div>
 
-    </div>
+<div  class="sensors">
+    <h4>Sensors</h4>
+    <p>
+            <span  class="sensor-detail">
+                ${singlePhoneDetail.mainFeatures.sensors}
+            </span>
+        </p>
+        
+</div>
+<div class="others">
+    <h4>Others</h4>
+    <p>Bluetooth: <span>${singlePhoneDetail.others.Bluetooth?singlePhoneDetail.others.Bluetooth:'No Data Found'}</span></p>
+    <p>GPS: <span>${singlePhoneDetail.others.GPS?singlePhoneDetail.others.GPS:'No Data Found'}</span></p>
+    <p>NFC: <span>${singlePhoneDetail.others.NFC?singlePhoneDetail.others.NFC:'No Data Found'}</span></p>
+    <p>Radio: <span>${singlePhoneDetail.others.Radio?singlePhoneDetail.others.Radio:'No Data Found'}</span></p>
+    <p>USB: <span>${singlePhoneDetail.others.USB?singlePhoneDetail.others.USB:'No Data Found'}</span></p>
+    <p>WLAN: <span>${singlePhoneDetail.others.WLAN?singlePhoneDetail.others.WLAN:'No Data Found'}</span></p>
+</div>
     `;
 
     modalDiv.appendChild(createModal);
