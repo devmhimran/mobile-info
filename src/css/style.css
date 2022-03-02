@@ -22,9 +22,7 @@
   background: #0c6efd; 
   border-radius: 10px;
 }
-/* p{
-  margin: 0;
-} */
+
 .holder {
     position: absolute;
     left: 0%;
@@ -84,10 +82,6 @@
     }
   }
 
-
-/* .header{
-    z-index: 999;
-} */
 .logo{
     font-size: 28px;
     text-decoration: none;
@@ -97,13 +91,7 @@
 hr{
     margin: 0;
 }
-/* .header-content{
-    display: flex;
-    align-items: center;
-} */
-/* .phone-img{
-    text-align: center;
-} */
+
 .phone-card{
   border-radius: 10px;
 }
@@ -152,6 +140,8 @@ hr{
 .modal-dialog{
   max-width: 600px;
 }
+
+/* Responsiveness */
 @media only screen and (max-width: 662px){
   .header-content{
     text-align: center;

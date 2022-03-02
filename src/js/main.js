@@ -28,6 +28,8 @@ const errorMessage = (displayStyle) =>{
 errorMessage('none');
 const displaySearchPhone = searchPhoneData => {
     const searchPhone = document.getElementById('search-phone');
+    const search20Data = searchPhoneData.data.slice(0, 20);
+    console.log(searchPhoneData.data);
     searchPhone.innerHTML = '';
     if( searchPhoneData.data.length == 0 ){
         console.log('Not Found');
@@ -35,8 +37,7 @@ const displaySearchPhone = searchPhoneData => {
         preloader('none');
     }else{
         preloader('none');
-        for(const searchData of searchPhoneData.data){
-        // console.log(searchData);
+        for(const searchData of search20Data){
         errorMessage('none');
         
         const divCreate = document.createElement('div');
@@ -47,13 +48,13 @@ const displaySearchPhone = searchPhoneData => {
                     <div class="card m-3 phone-card">
                         <div class="card-body p-4">
                             <div class="phone-img text-center mt-3">
-                                <img  data-bs-toggle="modal" href="#exampleModalToggle" role="button" src="${searchData.image}" alt="">
+                                <img src="${searchData.image}" alt="">
                             </div>
                             <div class="phone-name mt-4">
                                 <h4>${searchData.phone_name}</h4>
                             </div>
                             <div class="release-date">
-                                <p>Released 2021, September 24</p>
+                                <p>Brand: ${searchData.brand}</p>
                             </div>
                             <div class="view-button">
                                 <button id="view-button" onclick="viewPhoneDetail('${searchData.slug}')" class="btn btn-outline-primary btn-sm" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
@@ -62,13 +63,12 @@ const displaySearchPhone = searchPhoneData => {
                     </div>
         `;
         searchPhone.appendChild(divCreate);
-        }
-        
-        
+        }           
     }
     
 }
 
+// Phone Slug for Single Phone Data
 const viewPhoneDetail = (phoneSlug) =>{
     const phoneDetailSlug = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`;
     fetch(phoneDetailSlug)
@@ -77,7 +77,7 @@ const viewPhoneDetail = (phoneSlug) =>{
 }
 
 
-
+// Single Phone Modal
 const displaySinglePhone = singlePhoneDetail => {
   
     console.log(singlePhoneDetail.mainFeatures);
@@ -98,7 +98,7 @@ const displaySinglePhone = singlePhoneDetail => {
                 <h3>${singlePhoneDetail.name}</h3>
                 <div class="phone-short-detail">
                     <p class="brand">Brand: <span>${singlePhoneDetail.brand}</span></p>
-                    <p class="release-date">Release Date: <span>${singlePhoneDetail.releaseDate}</span></p>
+                    <p class="release-date">Release Date: <span>${singlePhoneDetail.releaseDate?singlePhoneDetail.releaseDate: 'No Date Found'}</span></p>
                 </div>
             </div>
         </div>
