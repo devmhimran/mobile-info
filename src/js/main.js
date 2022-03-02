@@ -91,7 +91,7 @@ const displaySinglePhone = singlePhoneDetail => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
         <div class="row">
-            <div class="modal-phone-image" class="col-md-5">
+            <div class="modal-phone-image col-md-5 col-sm-12">
                 <img src="${singlePhoneDetail.image}" alt="">
             </div>
             <div class="col-md-7">
@@ -115,19 +115,19 @@ const displaySinglePhone = singlePhoneDetail => {
     <h4>Sensors</h4>
     <p>
             <span  class="sensor-detail">
-                ${singlePhoneDetail.mainFeatures.sensors}
+                ${singlePhoneDetail.mainFeatures.sensors?singlePhoneDetail.mainFeatures.sensors: 'No Sensor Data Found'}
             </span>
         </p>
         
 </div>
 <div class="others">
     <h4>Others</h4>
-    <p>Bluetooth: <span>${singlePhoneDetail.others.Bluetooth?singlePhoneDetail.others.Bluetooth:'No Data Found'}</span></p>
-    <p>GPS: <span>${singlePhoneDetail.others.GPS?singlePhoneDetail.others.GPS:'No Data Found'}</span></p>
-    <p>NFC: <span>${singlePhoneDetail.others.NFC?singlePhoneDetail.others.NFC:'No Data Found'}</span></p>
-    <p>Radio: <span>${singlePhoneDetail.others.Radio?singlePhoneDetail.others.Radio:'No Data Found'}</span></p>
-    <p>USB: <span>${singlePhoneDetail.others.USB?singlePhoneDetail.others.USB:'No Data Found'}</span></p>
-    <p>WLAN: <span>${singlePhoneDetail.others.WLAN?singlePhoneDetail.others.WLAN:'No Data Found'}</span></p>
+    <p>Bluetooth: <span>${singlePhoneDetail.others?.Bluetooth?singlePhoneDetail.others.Bluetooth:'No Data Found'}</span></p>
+    <p>GPS: <span>${singlePhoneDetail.others?.GPS?singlePhoneDetail.others.GPS:'No Data Found'}</span></p>
+    <p>NFC: <span>${singlePhoneDetail.others?.NFC?singlePhoneDetail.others.NFC:'No Data Found'}</span></p>
+    <p>Radio: <span>${singlePhoneDetail.others?.Radio?singlePhoneDetail.others.Radio:'No Data Found'}</span></p>
+    <p>USB: <span>${singlePhoneDetail.others?.USB?singlePhoneDetail.others.USB:'No Data Found'}</span></p>
+    <p>WLAN: <span>${singlePhoneDetail.others?.WLAN?singlePhoneDetail.others.WLAN:'No Data Found'}</span></p>
 </div>
     `;
 
